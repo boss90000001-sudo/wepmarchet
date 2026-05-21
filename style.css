@@ -1,0 +1,334 @@
+/* ========== الألوان الأساسية والمتغيرات ========== */
+:root {
+    --beige-dark: #8B7355;
+    --brown: #4A2C2A;
+    --matte-blue: #2F4F6E;
+    --crimson: #8B0000;
+    --grey: #5A6268;
+    --bg-dark: #121212;
+    --bg-card: #1E1E1E;
+    --gold: #C5A55A;
+    --text-light: #EEEEEE;
+    --text-muted: #AAAAAA;
+    --radius: 12px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ========== الشريط العلوي ========== */
+.top-bar {
+    background-color: var(--brown);
+    color: white;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+.top-bar .contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+/* ========== الهيدر الرئيسي ========== */
+.header {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #2A1E1E 100%);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--crimson);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+.logo span {
+    color: var(--crimson);
+}
+.nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--crimson);
+    color: white;
+}
+.lang-switch {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+.lang-switch:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
+
+/* ========== قسم الهيرو ========== */
+.hero {
+    background: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0,0,0,0.7);
+    padding: 80px 20px;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== شبكة المنتجات ========== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* تم التعديل إلى 300px */
+    gap: 25px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+.product-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--crimson);
+    box-shadow: 0 10px 25px rgba(139,0,0,0.3);
+}
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.product-body {
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.product-category {
+    display: inline-block;
+    background: var(--matte-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+.product-title {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    color: var(--text-light);
+}
+.product-specs {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 10px 0;
+    text-align: right;
+    line-height: 1.8;
+}
+/* مربع عرض السعر */
+.price-box {
+    position: relative;
+    margin: 15px 0;
+    cursor: pointer;
+    background: var(--beige-dark);
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+.popup-currency {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-card);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 12px;
+    z-index: 10;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.popup-currency button {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 3px 0;
+    transition: var(--transition);
+}
+.popup-currency button:hover {
+    background: var(--crimson);
+}
+.buy-btn {
+    background: var(--crimson);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+.buy-btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+/* ========== تقييمات داخل الكارد ========== */
+.product-reviews {
+    margin-top: auto;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    text-align: right;
+}
+.product-reviews h4 {
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+.review-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+.review-item strong {
+    color: var(--gold);
+}
+.review-form-inline {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+.review-form-inline input,
+.review-form-inline textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--grey);
+    background: var(--bg-dark);
+    color: white;
+    font-size: 0.85rem;
+}
+.inline-stars {
+    direction: ltr; /* حتى تظهر من اليسار لليمين */
+    display: flex;
+    gap: 2px;
+    justify-content: flex-start;
+    margin: 5px 0;
+}
+.inline-stars span {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--grey);
+    transition: 0.2s;
+}
+.inline-stars span.active {
+    color: gold;
+}
+.submit-review-btn {
+    background: var(--matte-blue);
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    align-self: flex-end;
+}
+.submit-review-btn:hover {
+    background: var(--crimson);
+}
+
+/* ========== تواصل ========== */
+.contact-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--brown);
+    margin: 20px;
+    border-radius: var(--radius);
+}
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
