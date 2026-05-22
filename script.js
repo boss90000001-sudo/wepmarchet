@@ -53,26 +53,24 @@ langToggle.addEventListener('click', () => {
     renderProducts(currentFilter);
 });
 
-// ========== بيانات الساعات مع مصفوفة للتقييمات ==========
+// ========== بيانات الساعات مع مصفوفة للتقييمات (تم تصحيح مسارات الصور لتطابق ما هو مرفوع) ==========
 const watches = [
     { id: 1, name: {ar: 'ساعة لوسيرن الفاخرة', en: 'Lucerne Luxury Watch'}, category: 'luxury', priceYER: 70000, specs: {ar:'هيكل ذهبي، مينا عرق اللؤلؤ', en:'Gold case, mother-of-pearl dial'}, img: 'images/Lucerne Luxury Watch.jpeg', reviews: [] },
     { id: 2, name: {ar: 'ساعة كرونوغراف ملكية', en: 'Royal Chronograph'}, category: 'luxury', priceYER: 63000, specs: {ar:'حركة سويسرية، حزام جلد تمساح', en:'Swiss movement, crocodile strap'}, img: 'images/Royal Chronograph.jpeg', reviews: [] },
-    { id: 3, name: {ar: 'ساعة ريسر الرياضية', en: 'Racer Sports Watch'}, category: 'sports', priceYER: 42000, specs: {ar:'مقاومة ماء 200م، كرونوغراف', en:'200m water resistance, chronograph'}, img: 'https://images.unsplash.com/photo-1609587312208-cea54be969e7?w=400&h=400&fit=crop', reviews: [] },
+    { id: 3, name: {ar: 'ساعة ريسر الرياضية', en: 'Racer Sports Watch'}, category: 'sports', priceYER: 42000, specs: {ar:'مقاومة ماء 200م، كرونوغراف', en:'200m water resistance, chronograph'}, img: 'images/Adventure Pro.jpeg', reviews: [] },
     { id: 4, name: {ar: 'ساعة أدفنتشر برو', en: 'Adventure Pro'}, category: 'sports', priceYER: 35000, specs: {ar:'مينا كربوني، حزام مطاط', en:'Carbon dial, rubber strap'}, img: 'images/Adventure Pro.jpeg', reviews: [] },
-    { id: 5, name: {ar: 'ساعة سمارت تاتش', en: 'Smart Touch'}, category: 'smart', priceYER: 56000, specs: {ar:'شاشة AMOLED، مراقبة صحية', en:'AMOLED display, health tracking'}, img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop', reviews: [] },
-    { id: 6, name: {ar: 'ساعة إلكترونيك جير', en: 'Electronic Gear'}, category: 'smart', priceYER: 49000, specs: {ar:'بطارية 7 أيام، اتصال بلوتوث', en:'7-day battery, Bluetooth calling'}, img: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop', reviews: [] },
-    { id: 7, name: {ar: 'ساعة هيريتيج كلاسيك', en: 'Heritage Classic'}, category: 'classic', priceYER: 21000, specs: {ar:'جلد بني، مينا أبيض', en:'Brown leather, white dial'}, img: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop', reviews: [] },
-    { id: 8, name: {ar: 'ساعة فينتاج 1920', en: 'Vintage 1920'}, category: 'classic', priceYER: 28000, specs: {ar:'تصميم رجعي، هيكل نحاسي', en:'Retro design, brass case'}, img: 'https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=400&h=400&fit=crop', reviews: [] },
-
-   
-    { id: 9,  name: {ar: 'ساعة لوسيرن ستار', en: 'Lucerne Star'}, category: 'luxury', priceYER: 70000, specs: {ar:'مينا مرصع، حزام فولاذي', en:'Studded dial, steel strap'}, img: 'images/Untitled.jpeg', reviews: [] },
+    { id: 5, name: {ar: 'ساعة سمارت تاتش', en: 'Smart Touch'}, category: 'smart', priceYER: 56000, specs: {ar:'شاشة AMOLED، مراقبة صحية', en:'AMOLED display, health tracking'}, img: 'images/Active Gear .jpeg', reviews: [] },
+    { id: 6, name: {ar: 'ساعة إلكترونيك جير', en: 'Electronic Gear'}, category: 'smart', priceYER: 49000, specs: {ar:'بطارية 7 أيام، اتصال بلوتوث', en:'7-day battery, Bluetooth calling'}, img: 'images/Active Gear .jpeg', reviews: [] },
+    { id: 7, name: {ar: 'ساعة هيريتيج كلاسيك', en: 'Heritage Classic'}, category: 'classic', priceYER: 21000, specs: {ar:'جلد بني، مينا أبيض', en:'Brown leather, white dial'}, img: 'images/Classic Moon.jpeg', reviews: [] },
+    { id: 8, name: {ar: 'ساعة فينتاج 1920', en: 'Vintage 1920'}, category: 'classic', priceYER: 28000, specs: {ar:'تصميم رجعي، هيكل نحاسي', en:'Retro design, brass case'}, img: 'images/Classic Moon.jpeg', reviews: [] },
+    { id: 9,  name: {ar: 'ساعة لوسيرن ستار', en: 'Lucerne Star'}, category: 'luxury', priceYER: 70000, specs: {ar:'مينا مرصع، حزام فولاذي', en:'Studded dial, steel strap'}, img: 'images/(Crown Gold).jpeg', reviews: [] },
     { id: 10, name: {ar: 'ساعة كراون جولد', en: 'Crown Gold'}, category: 'luxury', priceYER: 77000, specs: {ar:'ذهب وردي، حركة أوتوماتيك', en:'Rose gold, automatic movement'}, img: 'images/(Crown Gold).jpeg', reviews: [] },
-    { id: 11, name: {ar: 'ساعة سبيد ريسر', en: 'Speed Racer'}, category: 'sports', priceYER: 35000, specs: {ar:'عداد سرعة، حزام سيليكون', en:'Tachymeter, silicone strap'}, img: 'images/Speed Racer.jpeg', reviews: [] },
+    { id: 11, name: {ar: 'ساعة سبيد ريسر', en: 'Speed Racer'}, category: 'sports', priceYER: 35000, specs: {ar:'عداد سرعة، حزام سيليكون', en:'Tachymeter, silicone strap'}, img: 'images/Deep Dive.jpeg', reviews: [] },
     { id: 12, name: {ar: 'ساعة ديب دايف', en: 'Deep Dive'}, category: 'sports', priceYER: 40000, specs: {ar:'مقاومة 300م، صمام هليوم', en:'300m WR, helium valve'}, img: 'images/Deep Dive.jpeg', reviews: [] },
     { id: 13, name: {ar: 'ساعة فيت تريك', en: 'Fit Trek'}, category: 'smart', priceYER: 49000, specs: {ar:'GPS مدمج، مراقبة نوم', en:'Built-in GPS, sleep tracking'}, img: 'images/Fit Trek.jpeg', reviews: [] },
-    { id: 14, name: {ar: 'ساعة تيك برو', en: 'Tech Pro'}, category: 'smart', priceYER: 55000, specs: {ar:'شاشة LTPO، شحن لاسلكي', en:'LTPO display, wireless charging'}, img: 'images/Tech Pro.jpeg', reviews: [] },
+    { id: 14, name: {ar: 'ساعة تيك برو', en: 'Tech Pro'}, category: 'smart', priceYER: 55000, specs: {ar:'شاشة LTPO، شحن لاسلكي', en:'LTPO display, wireless charging'}, img: 'images/Fit Trek.jpeg', reviews: [] },
     { id: 15, name: {ar: 'ساعة كلاسيك مون', en: 'Classic Moon'}, category: 'classic', priceYER: 28000, specs: {ar:'طور القمر، جلد إيطالي', en:'Moonphase, Italian leather'}, img: 'images/Classic Moon.jpeg', reviews: [] },
-    { id: 16, name: {ar: 'ساعة فينتاج ستايل', en: 'Vintage Style'}, category: 'classic', priceYER: 32000, specs: {ar:'مينا مشع، هيكل نحاس', en:'Luminous dial, brass case'}, img: 'images/Vintage Style.jpeg', reviews: [] },
+    { id: 16, name: {ar: 'ساعة فينتاج ستايل', en: 'Vintage Style'}, category: 'classic', priceYER: 32000, specs: {ar:'مينا مشع، هيكل نحاس', en:'Luminous dial, brass case'}, img: 'images/Elegant Dream.jpeg', reviews: [] },
     { id: 17, name: {ar: 'ساعة إليجنت دريم', en: 'Elegant Dream'}, category: 'luxury', priceYER: 60000, specs: {ar:'سوار من السيراميك', en:'Ceramic bracelet'}, img: 'images/Elegant Dream.jpeg', reviews: [] },
     { id: 18, name: {ar: 'ساعة أكتيف جير', en: 'Active Gear'}, category: 'sports', priceYER: 38000, specs: {ar:'مقاومة صدمات، إضاءة خلفية', en:'Shock resistant, backlight'}, img: 'images/Active Gear .jpeg', reviews: [] }
 ];
